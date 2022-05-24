@@ -15,9 +15,10 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: db
     expose:
-      - "8080"
+      - "5432"
     ports:
-      - "8000:8080"
+      - "5432:5432"
     volumes:
       - .:/data/db
