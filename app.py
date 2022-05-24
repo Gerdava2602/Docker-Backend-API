@@ -8,7 +8,7 @@ import json
 
 
 app = Flask(__name__)
-conn_string = 'postgresql://postgres:admin123@127.0.0.1:5432/db'
+conn_string = 'postgresql://postgres:admin123@database:5432/db'
 app.config["SQLALCHEMY_DATABASE_URI"] = conn_string
 engine = create_engine(conn_string)
 
