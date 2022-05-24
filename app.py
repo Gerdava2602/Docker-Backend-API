@@ -31,7 +31,7 @@ class s(db.Model):
 class a(db.Model):
     __tablename__= 'a'
     
-    test = Column(Integer, Sequence('id_seq', start=1), primary_key=True)
+    id_a = Column(Integer, primary_key=True)
     id = Column(Integer)
     hash = Column(String)
     timestamp = Column(DateTime)
