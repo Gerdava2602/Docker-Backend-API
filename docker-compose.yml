@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  web:
+    container_name: web_app
+    image: python
+    build: .
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+
+  database:
+    image: postgres
+    container_name: db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: admin123
+    expose:
+      - "8080"
+    ports:
+      - "8000:8080"
+    volumes:
+      - .:/data/db
