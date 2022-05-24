@@ -72,19 +72,23 @@ def user(id: int):
 @app.route('/user/<id>/<hash>')
 def user2(id: int, hash: str):
     now = datetime.now()
-    with Session(engine) as session:
-        check = session.query(s).filter(s.hash==hash).one_or_none()
-        if not check: return 'nok' #If hash not on table
-        if (check.timestamp + timedelta(hours=4)) >= datetime.now():
-            record = a(id=check.id, hash=check.hash, timestamp=datetime.now(), answer='ok')
+    try:
+        with Session(engine) as session:
+            check = session.query(s).filter(s.hash==hash).one_or_none()
+            if not check: return 'nok' #If hash not on table
+            if (check.timestamp + timedelta(hours=4)) >= datetime.now():
+                record = a(id=check.id, hash=check.hash, timestamp=datetime.now(), answer='ok')
+                session.add(record)
+                session.commit()
+                return 'ok'
+            
+            record = a(id=check.id, hash=check.hash, timestamp=datetime.now(), answer='nok')
             session.add(record)
             session.commit()
-            return 'ok'
-        
-        record = a(id=check.id, hash=check.hash, timestamp=datetime.now(), answer='nok')
-        session.add(record)
-        session.commit()
-        return 'nok'
+            return 'nok, no estaba el hash'
+    except Exception as e:
+        print(e)
+        return f'nok, \n\n{e}'
     
         
 @app.route('/delete')
