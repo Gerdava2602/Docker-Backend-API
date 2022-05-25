@@ -11,8 +11,3 @@ You can run the repository either in your local machine or in play with docker
 Inside the folder
  - `docker-compose build`
  - `nohup docker-compose up &`
-
-
-# Adding sql to database container
-Run the following command
-- `docker exec -u postgres db psql db postgres -f data/db/tables.sql`

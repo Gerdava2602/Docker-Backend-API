@@ -15,7 +15,7 @@ services:
     image: postgres
     container_name: db
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin123
       POSTGRES_DB: db
     expose:
@@ -23,7 +23,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - .:/data/db
+      - ./tables.sql:/docker-entrypoint-initdb.d/tables.sql
     networks:
       - web
 networks:
