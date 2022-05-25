@@ -9,5 +9,4 @@ You can run the repository either in your local machine or in play with docker
 # Creating docker images
 
 Inside the folder
- - `docker-compose build`
- - `nohup docker-compose up &`
+ - `docker-compose up -d`
