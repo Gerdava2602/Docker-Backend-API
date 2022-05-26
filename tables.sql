@@ -1,6 +1,6 @@
 CREATE TABLE s (
-   id INT PRIMARY KEY,
-   hash varchar(100) NOT NULL,
+   id INT NOT NULL,
+   hash varchar(100) PRIMARY KEY,
    timestamp TIMESTAMP NOT NULL
 );
 
