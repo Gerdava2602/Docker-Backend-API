@@ -17,8 +17,8 @@ db = SQLAlchemy(app)
 class s(db.Model):
     __tablename__= 's'
     
-    id = Column(Integer, primary_key=True)
-    hash = Column(String)
+    id = Column(Integer)
+    hash = Column(String, primary_key=True)
     timestamp = Column(DateTime)
     
     def as_dict(self):
